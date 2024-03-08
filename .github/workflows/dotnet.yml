@@ -6,14 +6,15 @@ on:
       - main
 
 env:
-  DOTNET_VERSION: '6.0.x'
+  DOTNET_VERSION: '8.0.x'
 
 jobs:
   build:
+    name: Build and Test
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Setup .NET 📦
         uses: actions/setup-dotnet@v3
@@ -27,4 +28,10 @@ jobs:
         run: dotnet build Sakura --configuration Release --no-restore
 
       - name: Test 🧪
-        run: dotnet test Sakura --configuration Release --no-build
+        run: dotnet test Sakura --configuration Release --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+
+      - name: Upload Code Coverage
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
