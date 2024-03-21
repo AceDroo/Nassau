@@ -1,6 +1,7 @@
 using FluentAssertions;
+using Sakura.Grid;
 
-namespace Sakura.Tests;
+namespace Sakura.Tests.Grid;
 
 public class GridPositionShould
 {
