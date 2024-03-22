@@ -2,23 +2,29 @@ using Sakura.Grid;
 
 namespace Sakura.Pathfinding;
 
-public class Pathfinding
+public class Pathfinder
 {
     private const int MoveStraightCost = 10;
     private const int MoveDiagonalCost = 14;
 
     private readonly GridSystem<PathNode> _gridSystem;
 
-    private Pathfinding(int width, int height, float cellSize)
+    private Pathfinder(int width, int height, float cellSize)
     {
         _gridSystem = GridSystem<PathNode>.Create(width, height, cellSize, (_, position) => new PathNode(position));
     }
 
-    public static Pathfinding Create(int width, int height, float cellSize)
+    public static Pathfinder Create(int width, int height, float cellSize)
     {
-        return new Pathfinding(width, height, cellSize);
+        return new Pathfinder(width, height, cellSize);
     }
 
+    public void SetIsWalkableGridPosition(GridPosition gridPosition, bool isWalkable)
+    {
+        _gridSystem.GetGridObject(gridPosition).SetIsWalkable(isWalkable);
+    }
+
+    
     public PathfindingResult FindPath(GridPosition startPosition, GridPosition endPosition)
     {
         var openList = new List<PathNode>();
@@ -107,14 +113,14 @@ public class Pathfinding
                 neighbourList.Add(GetNode(gridPosition.X - 1, gridPosition.Z - 1));
             }
 
-            if (gridPosition.Z + 1 < _gridSystem.Height)
+            if (gridPosition.Z + 1 < _gridSystem.Height - 1)
             {
                 // Left Up
                 neighbourList.Add(GetNode(gridPosition.X - 1, gridPosition.Z + 1));
             }
         }
 
-        if (gridPosition.X + 1 < _gridSystem.Width)
+        if (gridPosition.X + 1 < _gridSystem.Width - 1)
         {
             // Right
             neighbourList.Add(GetNode(gridPosition.X + 1, gridPosition.Z + 0));
@@ -123,7 +129,7 @@ public class Pathfinding
                 // Right Down
                 neighbourList.Add(GetNode(gridPosition.X + 1, gridPosition.Z - 1));
             }
-            if (gridPosition.X + 1 < _gridSystem.Height)
+            if (gridPosition.X + 1 < _gridSystem.Height - 1)
             {
                 // Right Up
                 neighbourList.Add(GetNode(gridPosition.X + 1, gridPosition.Z + 1));
@@ -135,14 +141,13 @@ public class Pathfinding
             // Down
             neighbourList.Add(GetNode(gridPosition.X + 0, gridPosition.Z - 1));
         }
-        if (gridPosition.Z + 1 < _gridSystem.Height)
+        if (gridPosition.Z + 1 < _gridSystem.Height - 1)
         {
             // Up
             neighbourList.Add(GetNode(gridPosition.X + 0, gridPosition.Z + 1));
         }
 
         return neighbourList;
-
     }
 
     private PathNode GetNode(int x, int z)

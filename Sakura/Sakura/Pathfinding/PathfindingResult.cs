@@ -4,6 +4,6 @@ namespace Sakura.Pathfinding;
 
 public record PathfindingResult(List<GridPosition> Nodes, int Length)
 {
-    public List<GridPosition> Nodes = Nodes;
-    public int Length = Length;
+    public readonly List<GridPosition> Nodes = Nodes;
+    public readonly int Length = Length;
 }
