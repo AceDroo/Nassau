@@ -154,10 +154,11 @@ public class Pathfinding
     {
         List<PathNode> pathNodeList = [ endNode ];
         var currentNode = endNode;
-        while (currentNode.GetCameFromPathNode() != null)           // TODO: Refactor to use Optional
+        while (currentNode.GetCameFromPathNode().IsPresent())
         {
-            pathNodeList.Add(currentNode.GetCameFromPathNode());
-            currentNode = currentNode.GetCameFromPathNode();
+            var pathNode = currentNode.GetCameFromPathNode().Get();
+            pathNodeList.Add(pathNode);
+            currentNode = pathNode;
         }
 
         pathNodeList.Reverse();

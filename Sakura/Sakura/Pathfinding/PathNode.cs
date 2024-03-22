@@ -7,7 +7,7 @@ public class PathNode(GridPosition position)
     private int _gCost;
     private int _hCost;
     private int _fCost;
-    private PathNode _cameFromPathNode;
+    private Option<PathNode> _cameFromPathNode;
     private bool _isWalkable = true;
 
     public int GetGCost()
@@ -42,15 +42,15 @@ public class PathNode(GridPosition position)
 
     public void ResetCameFromPathNode()
     {
-        _cameFromPathNode = null;
+        _cameFromPathNode = Option<PathNode>.None();
     }
 
     public void SetCameFromPathNode(PathNode pathNode)
     {
-        _cameFromPathNode = pathNode;
+        _cameFromPathNode = Option<PathNode>.Some(pathNode);
     }
 
-    public PathNode GetCameFromPathNode()
+    public Option<PathNode> GetCameFromPathNode()
     {
         return _cameFromPathNode;
     }
