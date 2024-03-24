@@ -1,4 +1,4 @@
-namespace Sakura;
+namespace Sakura.Combat;
 
 public class TurnSystem
 {

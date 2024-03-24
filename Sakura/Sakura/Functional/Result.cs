@@ -1,4 +1,4 @@
-namespace Sakura;
+namespace Sakura.Functional;
 
 public readonly struct Result<TSuccess, TError>
 {

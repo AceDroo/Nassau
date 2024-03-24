@@ -1,6 +1,7 @@
 using FluentAssertions;
+using Sakura.Geoscape;
 
-namespace Sakura.Tests;
+namespace Sakura.Tests.Geoscape;
 
 [TestFixture]
 public class WorldClockShould

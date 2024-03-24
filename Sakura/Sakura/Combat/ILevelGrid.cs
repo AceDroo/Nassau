@@ -1,6 +1,9 @@
+using Sakura.Core;
+using Sakura.Functional;
 using Sakura.Grid;
+using Sakura.Interactions;
 
-namespace Sakura;
+namespace Sakura.Combat;
 
 public interface ILevelGrid
 {
@@ -13,4 +16,6 @@ public interface ILevelGrid
     Option<IInteractable> GetInteractableAtGridPosition(GridPosition position);
     void SetInteractableAtGridPosition(GridPosition position);
     void ClearInteractableAtGridPosition(GridPosition position);
+    // GridPosition GetGridPosition(Vector3 worldPosition);
+    // Vector3 GetWorldPosition(GridPosition position);
 }

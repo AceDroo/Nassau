@@ -1,4 +1,4 @@
-namespace Sakura;
+namespace Sakura.Interactions;
 
 public interface IInteractable
 {

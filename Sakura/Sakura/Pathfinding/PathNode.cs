@@ -1,3 +1,4 @@
+using Sakura.Functional;
 using Sakura.Grid;
 
 namespace Sakura.Pathfinding;

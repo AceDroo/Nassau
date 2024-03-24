@@ -1,4 +1,4 @@
-namespace Sakura;
+namespace Sakura.Geoscape;
 
 public class TimeUpdatedArgs : EventArgs
 {

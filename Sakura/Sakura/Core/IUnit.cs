@@ -1,4 +1,4 @@
-namespace Sakura;
+namespace Sakura.Core;
 
 public interface IUnit
 {

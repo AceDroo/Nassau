@@ -1,6 +1,7 @@
 using FluentAssertions;
+using Sakura.Functional;
 
-namespace Sakura.Tests;
+namespace Sakura.Tests.Functional;
 
 [TestFixture]
 public class ResultShould

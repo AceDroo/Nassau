@@ -1,6 +1,7 @@
 using FluentAssertions;
+using Sakura.Combat;
 
-namespace Sakura.Tests;
+namespace Sakura.Tests.Combat;
 
 [TestFixture]
 public class TurnSystemShould

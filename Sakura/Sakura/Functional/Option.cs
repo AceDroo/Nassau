@@ -1,4 +1,4 @@
-namespace Sakura;
+namespace Sakura.Functional;
 
 public readonly struct Option<T>
 {
@@ -46,5 +46,5 @@ public readonly struct Option<T>
 
     public Option<TResult> Map<TResult>(Func<T, TResult> map) => _value is null ? Option<TResult>.None() : Option<TResult>.Some(map(_value));
 
-    public T Reduce(T orElse) => _value ?? orElse;
+    public T Reduce(T orElse) => _hasValue ? _value : orElse;
 }
