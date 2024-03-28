@@ -1,4 +1,8 @@
 using FluentAssertions;
+using NSubstitute;
+using Sakura.Core;
+using Sakura.Ranking;
+using Sakura.Status;
 
 namespace Sakura.Tests;
 
@@ -6,12 +10,12 @@ namespace Sakura.Tests;
 public class PromotionShould
 {
 	private Promotion _promotion;
-	private Soldier _soldier;
+	private IUnit _unit;
 
 	[SetUp]
 	public void Setup()
 	{
-		_soldier = new Soldier();
+		_unit = Substitute.For<IUnit>();
 		_promotion = new Promotion([
 			new RankInfo(Rank.Squaddie, 100),
 			new RankInfo(Rank.Corporal, 200)
@@ -21,30 +25,30 @@ public class PromotionShould
 	[Test]
 	public void Promote_Soldier_To_Next_Rank_When_Experience_Threshold_Reached()
 	{
-		_soldier.AddExperience(100);
+		_unit.Stats.Returns([new Stat("Experience", 100, 1000)]);
 
-		_promotion.AttemptPromotion(_soldier);
+		_promotion.AttemptPromotion(_unit);
 
-		_soldier.Rank.Should().Be(Rank.Squaddie);
+		_unit.Rank.Should().Be(Rank.Squaddie);
 	}
 
 	[Test]
 	public void Not_Promote_Soldier_When_Experience_Threshold_Not_Reached()
 	{
-		_soldier.AddExperience(99);
+		_unit.Stats.Returns([new Stat("Experience", 99, 1000)]);
 
-		_promotion.AttemptPromotion(_soldier);
+		_promotion.AttemptPromotion(_unit);
 
-		_soldier.Rank.Should().Be(Rank.Rookie);
+		_unit.Rank.Should().Be(Rank.Rookie);
 	}
 
 	[Test]
 	public void Not_Overpromote_Soldier()
 	{
-		_soldier.AddExperience(120);
+		_unit.Stats.Returns([new Stat("Experience", 120, 1000)]);
 
-		_promotion.AttemptPromotion(_soldier);
+		_promotion.AttemptPromotion(_unit);
 
-		_soldier.Rank.Should().Be(Rank.Squaddie);
+		_unit.Rank.Should().Be(Rank.Squaddie);
 	}
 }
