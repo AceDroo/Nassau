@@ -1,5 +1,6 @@
 using Sakura.Extensions;
 using Sakura.Races;
+using Sakura.Status;
 
 namespace Sakura.Units;
 
@@ -27,16 +28,17 @@ public class RandomUnitGenerator(IRaceDataProvider dataProvider, Random random)
         );
     }
 
-    private UnitStats CreateStats(Race race)
+    private Stats CreateStats(Race race)
     {
-        return new UnitStats(
-            random.Next(race.Health),
-            random.Next(race.Accuracy), 
-            random.Next(race.Defense), 
-            random.Next(race.Speed),
-            0,
-            0
-        );
+        return new Stats
+        {
+            { "Health", random.Next(race.Health) },
+            { "Accuracy", random.Next(race.Accuracy) },
+            { "Defense", random.Next(race.Defense) },
+            { "Speed", random.Next(race.Speed) },
+            { "Missions", 0, int.MaxValue },
+            { "Kills", 0, int.MaxValue }
+        };
     }
 
     private UnitAppearance CreateAppearance(Race race)

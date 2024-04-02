@@ -1,8 +1,10 @@
+using Sakura.Status;
+
 namespace Sakura.Units;
 
-public class Unit(UnitIdentity identity, UnitStats stats, UnitAppearance appearance)
+public class Unit(UnitIdentity identity, Stats stats, UnitAppearance appearance)
 {
     public UnitIdentity Identity => identity;
-    public UnitStats Stats => stats;
+    public Stats Stats => stats;
     public UnitAppearance Appearance => appearance;
 }

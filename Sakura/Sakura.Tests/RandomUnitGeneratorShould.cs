@@ -2,6 +2,7 @@ using FluentAssertions;
 using NSubstitute;
 using Sakura.Core;
 using Sakura.Races;
+using Sakura.Status;
 using Sakura.Units;
 
 namespace Sakura.Tests;
@@ -9,6 +10,11 @@ namespace Sakura.Tests;
 [TestFixture]
 public class RandomUnitGeneratorShould
 {
+    private RandomUnitGenerator _unitGenerator;
+    private IRaceDataProvider _raceDataProvider;
+    private Random _random;
+    private Race _race;
+
     [SetUp]
     public void Setup()
     {
@@ -27,11 +33,6 @@ public class RandomUnitGeneratorShould
             new RangedInt(50, 90));
         _raceDataProvider.GetAll().Returns([_race]);
     }
-
-    private RandomUnitGenerator _unitGenerator;
-    private IRaceDataProvider _raceDataProvider;
-    private Random _random;
-    private Race _race;
 
     [Test]
     public void Generate_Unit()
@@ -53,10 +54,12 @@ public class RandomUnitGeneratorShould
         unit.Identity.Race.Should().Be("Human");
 
         unit.Stats.Should().NotBeNull();
-        unit.Stats.Health.Should().Be(100);
-        unit.Stats.Accuracy.Should().Be(80);
-        unit.Stats.Defense.Should().Be(85);
-        unit.Stats.Speed.Should().Be(76);
+        unit.Stats["Health"].Should().BeEquivalentTo(new Stat("Health", 100, 100));
+        unit.Stats["Accuracy"].Should().BeEquivalentTo(new Stat("Accuracy", 80, 80));
+        unit.Stats["Defense"].Should().BeEquivalentTo(new Stat("Defense", 85, 85));
+        unit.Stats["Speed"].Should().BeEquivalentTo(new Stat("Speed", 76, 76));
+        unit.Stats["Missions"].Should().BeEquivalentTo(new Stat("Missions", 0, int.MaxValue));
+        unit.Stats["Kills"].Should().BeEquivalentTo(new Stat("Kills", 0, int.MaxValue));
 
         unit.Appearance.Should().NotBeNull();
         unit.Appearance.Should().BeEquivalentTo(new UnitAppearance(0, 0, 0, 0, 0));
