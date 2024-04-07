@@ -1,6 +1,6 @@
 using Sakura.Status;
 
-namespace Sakura.Core;
+namespace Sakura.Units;
 
 public interface IUnit
 {

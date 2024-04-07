@@ -3,6 +3,7 @@ using NSubstitute;
 using Sakura.Core;
 using Sakura.Ranking;
 using Sakura.Status;
+using Sakura.Units;
 
 namespace Sakura.Tests;
 

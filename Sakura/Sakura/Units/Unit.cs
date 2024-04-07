@@ -1,4 +1,3 @@
-using Sakura.Core;
 using Sakura.Status;
 
 namespace Sakura.Units;
