@@ -2,8 +2,9 @@ using Sakura.Extensions;
 using Sakura.Races;
 using Sakura.Ranking;
 using Sakura.Status;
+using Sakura.Units;
 
-namespace Sakura.Units;
+namespace Sakura;
 
 public class RandomUnitGenerator(IRaceDataProvider dataProvider, Random random) : IUnitGenerator
 {
