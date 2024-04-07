@@ -25,30 +25,33 @@ public class PromotionShould
 	[Test]
 	public void Promote_Soldier_To_Next_Rank_When_Experience_Threshold_Reached()
 	{
+		_unit.Identity.Returns(new Identity("Stacey", "Fakename", "Flight", "Female", "Emotion", Rank.Rookie));
 		_unit.Stats.Returns([new Stat("Experience", 100, 1000)]);
 
 		_promotion.AttemptPromotion(_unit);
 
-		_unit.Rank.Should().Be(Rank.Squaddie);
+		_unit.Identity.Rank.Should().Be(Rank.Squaddie);
 	}
 
 	[Test]
 	public void Not_Promote_Soldier_When_Experience_Threshold_Not_Reached()
 	{
+		_unit.Identity.Returns(new Identity("Stacey", "Fakename", "Flight", "Female", "Emotion", Rank.Rookie));
 		_unit.Stats.Returns([new Stat("Experience", 99, 1000)]);
 
 		_promotion.AttemptPromotion(_unit);
 
-		_unit.Rank.Should().Be(Rank.Rookie);
+		_unit.Identity.Rank.Should().Be(Rank.Rookie);
 	}
 
 	[Test]
 	public void Not_Overpromote_Soldier()
 	{
+		_unit.Identity.Returns(new Identity("Stacey", "Fakename", "Flight", "Female", "Emotion", Rank.Rookie));
 		_unit.Stats.Returns([new Stat("Experience", 120, 1000)]);
 
 		_promotion.AttemptPromotion(_unit);
 
-		_unit.Rank.Should().Be(Rank.Squaddie);
+		_unit.Identity.Rank.Should().Be(Rank.Squaddie);
 	}
 }

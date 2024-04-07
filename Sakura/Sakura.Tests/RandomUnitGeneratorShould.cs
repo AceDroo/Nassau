@@ -62,6 +62,6 @@ public class RandomUnitGeneratorShould
         unit.Stats["Kills"].Should().BeEquivalentTo(new Stat("Kills", 0, int.MaxValue));
 
         unit.Appearance.Should().NotBeNull();
-        unit.Appearance.Should().BeEquivalentTo(new UnitAppearance(0, 0, 0, 0, 0));
+        unit.Appearance.Should().BeEquivalentTo(new Appearance(0, 0, 0, 0, 0));
     }
 }

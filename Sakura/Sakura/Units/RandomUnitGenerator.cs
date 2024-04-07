@@ -1,12 +1,14 @@
+using Sakura.Core;
 using Sakura.Extensions;
 using Sakura.Races;
+using Sakura.Ranking;
 using Sakura.Status;
 
 namespace Sakura.Units;
 
-public class RandomUnitGenerator(IRaceDataProvider dataProvider, Random random)
+public class RandomUnitGenerator(IRaceDataProvider dataProvider, Random random) : IUnitGenerator
 {
-    public Unit Generate()
+    public IUnit Generate()
     {
         var race = random.Choose(dataProvider.GetAll());
 
@@ -17,14 +19,15 @@ public class RandomUnitGenerator(IRaceDataProvider dataProvider, Random random)
         );
     }
 
-    private UnitIdentity CreateIdentity(Race race)
+    private Identity CreateIdentity(Race race)
     {
-        return new UnitIdentity(
+        return new Identity(
             random.Choose(race.FirstNames), 
             random.Choose(race.LastNames),
             string.Empty,
             random.Choose(race.Genders),
-            race.RaceName
+            race.RaceName,
+            Rank.Rookie
         );
     }
 
@@ -41,8 +44,8 @@ public class RandomUnitGenerator(IRaceDataProvider dataProvider, Random random)
         };
     }
 
-    private UnitAppearance CreateAppearance(Race race)
+    private Appearance CreateAppearance(Race race)
     {
-        return new UnitAppearance(0, 0, 0, 0, 0);
+        return new Appearance(0, 0, 0, 0, 0);
     }
 }

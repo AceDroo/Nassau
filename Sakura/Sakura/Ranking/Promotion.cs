@@ -9,7 +9,7 @@ public class Promotion(List<RankInfo> ranks)
 		ranks.ForEach(rankInfo =>
 		{
 			if (!CanPromote(unit, rankInfo)) return;
-			unit.Rank = rankInfo.Rank;
+			unit.Identity = unit.Identity with { Rank = rankInfo.Rank };
 		});
 	}
 
