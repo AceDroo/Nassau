@@ -1,5 +1,6 @@
 using FluentAssertions;
 using NSubstitute;
+using Sakura.Economy;
 using Sakura.Units;
 
 namespace Sakura.Tests;
@@ -10,7 +11,7 @@ public class RecruitmentShould
     [Test]
     public void Return_Error_When_Attempting_To_Recruit_But_No_Unit_Selected()
     {
-        var recruitment = new Recruitment(100);
+        var recruitment = new Recruitment(new Budget(100));
 
         var result = recruitment.TryRecruitUnit(null);
 
@@ -21,7 +22,7 @@ public class RecruitmentShould
     [Test]
     public void Return_Error_When_Attempting_To_Recruit_But_Lack_Funds()
     {
-        var recruitment = new Recruitment(99);
+        var recruitment = new Recruitment(new Budget(99));
 
         var unit = Substitute.For<IUnit>();
         var result = recruitment.TryRecruitUnit(unit);
@@ -33,7 +34,7 @@ public class RecruitmentShould
     [Test]
     public void Return_Success_When_Unit_Successfully_Recruited()
     {
-        var recruitment = new Recruitment(100);
+        var recruitment = new Recruitment(new Budget(100));
 
         var unit = Substitute.For<IUnit>();
         var result = recruitment.TryRecruitUnit(unit);
@@ -45,11 +46,12 @@ public class RecruitmentShould
     [Test]
     public void Subtract_Recruitment_Cost_From_Balance_When_Unit_Successfully_Recruited()
     {
-        var recruitment = new Recruitment(100);
+        var budget = new Budget(100);
+        var recruitment = new Recruitment(budget);
 
         var unit = Substitute.For<IUnit>();
         recruitment.TryRecruitUnit(unit);
 
-        recruitment.Balance.Should().Be(0);
+        budget.Balance.Should().Be(0);
     }
 }

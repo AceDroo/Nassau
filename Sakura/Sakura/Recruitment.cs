@@ -1,3 +1,4 @@
+using Sakura.Economy;
 using Sakura.Functional;
 using Sakura.Units;
 
@@ -6,14 +7,12 @@ namespace Sakura;
 public class Recruitment
 {
     private const int UnitRecruitmentCost = 100;
-    private int _balance;
+    private readonly Budget _budget;
 
-    public Recruitment(int balance)
+    public Recruitment(Budget budget)
     {
-        _balance = balance;
+        _budget = budget;
     }
-
-    public int Balance => _balance;
 
     public Result<IUnit, string> TryRecruitUnit(IUnit unit)
     {
@@ -22,12 +21,12 @@ public class Recruitment
             return Result<IUnit, string>.Err("No unit selected");
         }
 
-        if (_balance < UnitRecruitmentCost)
+        if (!_budget.HasFunds(UnitRecruitmentCost))
         {
             return Result<IUnit, string>.Err("Not enough funds to recruit");
         }
 
-        _balance -= UnitRecruitmentCost;
+        _budget.Take(UnitRecruitmentCost);
         return Result<IUnit, string>.Ok(unit);
     }
 }
