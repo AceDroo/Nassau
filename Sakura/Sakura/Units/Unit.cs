@@ -12,4 +12,9 @@ public class Unit(Identity identity, Stats stats, Appearance appearance) : IUnit
 
     public Stats Stats => stats;
     public Appearance Appearance => appearance;
+
+    public void TakeDamage(int damage)
+    {
+        
+    }
 }
