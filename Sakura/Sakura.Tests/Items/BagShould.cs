@@ -80,12 +80,20 @@ public class BagShould
     }
 
     [Test]
-    public void Return_False_When_CannotAdd_Item()
+    public void Return_False_When_Adding_Item_But_Exceeds_Capacity()
     {
         var bag = new Bag(1);
         bag.Add(new Item());
 
         bag.CanAdd(new Item()).Should().BeFalse();
+    }
+
+    [Test]
+    public void Return_False_When_CannotAdd_Item_With_Inventory()
+    {
+        var bag = new Bag(10);
+
+        bag.CanAdd(new Bag(1)).Should().BeFalse();
     }
 
     [Test]

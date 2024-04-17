@@ -1,6 +1,6 @@
 namespace Sakura.Items;
 
-public class Bag : IInventory
+public class Bag : Item, IInventory
 {
     private readonly List<Item> _items;
     private readonly int _capacity;
@@ -25,7 +25,7 @@ public class Bag : IInventory
 
     public bool CanAdd(Item item)
     {
-        return _items.Count < _capacity;
+        return _items.Count < _capacity && item is not IInventory;
     }
 
     public bool CanRemove(Item item)
