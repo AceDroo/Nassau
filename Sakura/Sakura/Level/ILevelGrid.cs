@@ -1,10 +1,9 @@
-using Sakura.Core;
 using Sakura.Functional;
 using Sakura.Grid;
 using Sakura.Interactions;
 using Sakura.Units;
 
-namespace Sakura.Combat;
+namespace Sakura.Level;
 
 public interface ILevelGrid
 {
