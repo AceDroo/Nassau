@@ -15,7 +15,8 @@ public class RandomUnitGenerator(IRaceDataProvider dataProvider, Random random) 
         return new Unit(
             CreateIdentity(race),
             CreateStats(race),
-            CreateAppearance(race)
+            CreateAppearance(race),
+            new Flags()
         );
     }
 

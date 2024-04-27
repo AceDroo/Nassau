@@ -7,6 +7,16 @@ namespace Sakura.Tests.Status;
 public class FlagsShould
 {
     [Test]
+    public void Add_Flag()
+    {
+        var flags = new Flags();
+
+        flags.Add(new Flag { Name = "Test", Status = true });
+
+        flags["Test"].Should().BeTrue();
+    }
+
+    [Test]
     public void Add_Flag_With_Default_Status_Given_Name()
     {
         var flags = new Flags();
@@ -36,6 +46,14 @@ public class FlagsShould
         flags["Flag1"].Should().BeTrue();
     }
 
+    [Test]
+    public void Return_False_When_Trying_To_Find_Nonexistent_Flag()
+    {
+        var flags = new Flags();
+
+        flags["Test"].Should().BeFalse();
+    }
+    
     [Test]
     public void Add_Flag_With_Specified_Status_Using_Indexer_If_Nonexistent()
     {

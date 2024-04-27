@@ -5,26 +5,22 @@ namespace Sakura.Actions;
 
 public class Shoot : ICombatAction
 {
-    private readonly IUnit _enemy;
+    private readonly IUnit _unit;
     private readonly IRandomService _random;
 
-    public Shoot(IUnit enemy, IRandomService randomService)
+    public Shoot(IUnit unit, IRandomService randomService)
     {
-        _enemy = enemy;
+        _unit = unit;
         _random = randomService;
     }
 
     public void Execute(IUnit target)
     {
-        if (CanHit(_enemy.Stats["Aim"].Value))
+        if (CanHit(_unit.Stats["Aim"].Value))
         {
-            var gun = _enemy.Weapon as Gun;
-            gun?.Use(target);
+            _unit.Weapon.Use(target);
         }
-        else
-        {
-            //_logger.Log($"{_enemy.Name} misses {target.Name}.");
-        }
+        //_logger.Log($"{_enemy.Name} misses {target.Name}.");
     }
 
     private bool CanHit(int aim)

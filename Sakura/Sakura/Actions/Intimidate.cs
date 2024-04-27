@@ -15,7 +15,9 @@ public class Intimidate : ICombatAction
 
     public void Execute(IUnit unit)
     {
-        //_logger.Log($"{_enemy.Name} is attempting to intimidate its target!");
-        //if (_randomService.Next(unit.Stats["Will"].Value) < 10) _logger.Log("Soldier has panicked!");
+        if (_randomService.Next(0, 10) < _enemy.Stats["Will"].Value)
+        {
+            unit.Flags["Panic"] = true;
+        }
     }
 }

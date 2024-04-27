@@ -14,7 +14,7 @@ public class UnitShould
         var identity = new Identity("Sakura", "Kinomoto", "Sakura", "Female", "Human", Rank.Rookie);
         Stats stats = [new Stat("Health", 100, 100)];
         var appearance = new Appearance(1, 1, 1, 1, 1);
-        var unit = new Unit(identity, stats, appearance);
+        var unit = new Unit(identity, stats, appearance, new Flags());
 
         unit.TakeDamage(10);
 
@@ -27,7 +27,7 @@ public class UnitShould
         var identity = new Identity("Sakura", "Kinomoto", "Sakura", "Female", "Human", Rank.Rookie);
         Stats stats = [new Stat("Health", 90, 100)];
         var appearance = new Appearance(1, 1, 1, 1, 1);
-        var unit = new Unit(identity, stats, appearance);
+        var unit = new Unit(identity, stats, appearance, new Flags());
 
         unit.Heal(10);
 

@@ -3,7 +3,7 @@ using TrenchCats.Combat;
 
 namespace Sakura.Units;
 
-public class Unit(Identity identity, Stats stats, Appearance appearance) : IUnit
+public class Unit(Identity identity, Stats stats, Appearance appearance, Flags flags) : IUnit
 {
     public Identity Identity
     {
@@ -11,6 +11,7 @@ public class Unit(Identity identity, Stats stats, Appearance appearance) : IUnit
         set => identity = value;
     }
 
+    public Flags Flags => flags;
     public Stats Stats => stats;
     public Appearance Appearance => appearance;
     public IWeapon Weapon { get; set; }
