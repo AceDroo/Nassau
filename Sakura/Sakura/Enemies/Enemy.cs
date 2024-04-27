@@ -1,24 +1,20 @@
 using Sakura.Actions;
 using Sakura.Status;
-using Sakura.Units;
 using TrenchCats.Combat;
 
 namespace Sakura.Enemies;
 
-public class Enemy : IUnit
+public class Enemy : IDamageable
 {
+    private readonly string _name;
     private IWeapon _weapon;
     private List<ICombatAction> _actions = [];
-    private readonly Stats _stats = new();
+    private readonly Stats _stats = [];
 
-    public string Name { get; set; }
-
-    public Enemy(EnemyStats enemyStats, IWeapon weapon, Identity identity, Appearance appearance)
+    public Enemy(EnemyStats enemyStats, IWeapon weapon)
     {
-        Name = enemyStats.Name;
+        _name = enemyStats.Name;
         _weapon = weapon;
-        Identity = identity;
-        Appearance = appearance;
         _stats.Add("Health", enemyStats.Health);
         _stats.Add("Will", enemyStats.Will);
         _stats.Add("Aim", enemyStats.Aim);
@@ -38,20 +34,13 @@ public class Enemy : IUnit
     }
 
     public Stats Stats => _stats;
-    public Identity Identity { get; set; }
 
-    public Appearance Appearance { get; }
-
-    public IWeapon Weapon
-    {
-        get => _weapon;
-        set => _weapon = value;
-    }
+    public IWeapon Weapon => _weapon;
 
     public void AddCombatAction(ICombatAction combatAction)
     {
         _actions.Add(combatAction);
     }
 
-    public List<ICombatAction> CombatActions => _actions;
+    public IEnumerable<ICombatAction> CombatActions => _actions;
 }
