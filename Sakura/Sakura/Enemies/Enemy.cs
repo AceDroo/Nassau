@@ -1,7 +1,7 @@
 using Sakura.Actions;
 using Sakura.Status;
 using Sakura.Units;
-using Sakura.Weapons;
+using TrenchCats.Combat;
 
 namespace Sakura.Enemies;
 

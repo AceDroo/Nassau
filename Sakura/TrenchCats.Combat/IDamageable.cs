@@ -1,4 +1,4 @@
-namespace Sakura.Core;
+namespace TrenchCats.Combat;
 
 public interface IDamageable
 {

@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\TrenchCats.Combat\TrenchCats.Combat.csproj" />
       <ProjectReference Include="..\TrenchCats.Interactions\TrenchCats.Interactions.csproj" />
     </ItemGroup>
 

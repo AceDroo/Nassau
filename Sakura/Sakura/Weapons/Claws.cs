@@ -1,18 +1,11 @@
-using Sakura.Units;
+using TrenchCats.Combat;
 
 namespace Sakura.Weapons;
 
-public class Claws : IWeapon
+public class Claws(int amount) : IWeapon
 {
-    private readonly int _amount;
-
-    public Claws(int amount)
+    public void Use(IDamageable target)
     {
-        _amount = amount;
-    }
-
-    public void Use(IUnit unit)
-    {
-        unit.TakeDamage(_amount);
+        target.TakeDamage(amount);
     }
 }

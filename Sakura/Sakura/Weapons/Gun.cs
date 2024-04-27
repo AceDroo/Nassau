@@ -1,5 +1,5 @@
 using Sakura.Status;
-using Sakura.Units;
+using TrenchCats.Combat;
 
 namespace Sakura.Weapons;
 
@@ -22,9 +22,9 @@ public class Gun : IWeapon
 
     public Stats Stats => _stats;
 
-    public void Use(IUnit unit)
+    public void Use(IDamageable target)
     {
-        unit.TakeDamage(CalculateDamage());
+        target.TakeDamage(CalculateDamage());
         _stats["Ammo"].Decrease(1);
     }
 

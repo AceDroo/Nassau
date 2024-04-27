@@ -1,5 +1,5 @@
 using Sakura.Status;
-using Sakura.Weapons;
+using TrenchCats.Combat;
 
 namespace Sakura.Units;
 
