@@ -1,7 +1,7 @@
 using Sakura.Functional;
 using Sakura.Grid;
-using Sakura.Interactions;
 using Sakura.Units;
+using TrenchCats.Interactions;
 
 namespace Sakura.Level;
 

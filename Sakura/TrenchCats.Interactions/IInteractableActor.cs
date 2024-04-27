@@ -1,4 +1,4 @@
-namespace Sakura.Interactions;
+namespace TrenchCats.Interactions;
 
 public interface IInteractableActor
 {
