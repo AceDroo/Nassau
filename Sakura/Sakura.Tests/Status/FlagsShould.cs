@@ -1,5 +1,5 @@
 using FluentAssertions;
-using Sakura.Status;
+using TrenchCats.Status;
 
 namespace Sakura.Tests.Status;
 

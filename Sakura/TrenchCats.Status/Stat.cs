@@ -1,4 +1,4 @@
-namespace Sakura.Status;
+namespace TrenchCats.Status;
 
 public class Stat(string name, int value, int max)
 {

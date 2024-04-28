@@ -1,8 +1,8 @@
 using NSubstitute;
 using Sakura.Actions;
-using Sakura.Status;
 using Sakura.Units;
 using TrenchCats.Combat;
+using TrenchCats.Status;
 
 namespace Sakura.Tests.Actions;
 

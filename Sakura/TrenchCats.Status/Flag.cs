@@ -1,4 +1,4 @@
-namespace Sakura.Status;
+namespace TrenchCats.Status;
 
 [Serializable]
 public class Flag

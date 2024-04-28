@@ -1,9 +1,8 @@
 using FluentAssertions;
 using NSubstitute;
-using Sakura.Core;
 using Sakura.Ranking;
-using Sakura.Status;
 using Sakura.Units;
+using TrenchCats.Status;
 
 namespace Sakura.Tests;
 

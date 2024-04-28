@@ -1,6 +1,6 @@
 using System.Collections;
 
-namespace Sakura.Status;
+namespace TrenchCats.Status;
 
 [Serializable]
 public class Flags : IEnumerable<Flag>

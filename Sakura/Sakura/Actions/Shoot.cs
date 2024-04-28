@@ -1,5 +1,4 @@
 using Sakura.Units;
-using Sakura.Weapons;
 
 namespace Sakura.Actions;
 
