@@ -1,5 +1,5 @@
-using Sakura.Functional;
 using Sakura.Units;
+using TrenchCats.Functional;
 using TrenchCats.Interactions;
 
 namespace Sakura.Grid;

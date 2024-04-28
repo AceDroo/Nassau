@@ -1,5 +1,5 @@
 using FluentAssertions;
-using Sakura.Functional;
+using TrenchCats.Functional;
 
 namespace Sakura.Tests.Functional;
 

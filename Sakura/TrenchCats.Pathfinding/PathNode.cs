@@ -1,7 +1,7 @@
-using Sakura.Functional;
+using TrenchCats.Functional;
 using TrenchCats.Grid;
 
-namespace Sakura.Pathfinding;
+namespace TrenchCats.Pathfinding;
 
 public class PathNode(GridPosition position)
 {

@@ -30,6 +30,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Sakura\Sakura.csproj" />
+      <ProjectReference Include="..\TrenchCats.Pathfinding\TrenchCats.Pathfinding.csproj" />
     </ItemGroup>
 
 </Project>

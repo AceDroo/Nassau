@@ -1,6 +1,6 @@
 using Sakura.Economy;
-using Sakura.Functional;
 using Sakura.Units;
+using TrenchCats.Functional;
 
 namespace Sakura;
 

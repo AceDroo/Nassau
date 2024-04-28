@@ -1,4 +1,4 @@
-namespace Sakura.Functional;
+namespace TrenchCats.Functional;
 
 public readonly struct Option<T>
 {

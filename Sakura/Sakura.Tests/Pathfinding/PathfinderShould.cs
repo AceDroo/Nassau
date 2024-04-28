@@ -1,6 +1,6 @@
 using FluentAssertions;
-using Sakura.Pathfinding;
 using TrenchCats.Grid;
+using TrenchCats.Pathfinding;
 
 namespace Sakura.Tests.Pathfinding;
 

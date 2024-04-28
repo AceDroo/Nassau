@@ -1,6 +1,6 @@
 using TrenchCats.Grid;
 
-namespace Sakura.Pathfinding;
+namespace TrenchCats.Pathfinding;
 
 public class Pathfinder
 {

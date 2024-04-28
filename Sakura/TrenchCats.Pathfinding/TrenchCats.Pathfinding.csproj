@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
@@ -7,11 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\TrenchCats.Combat\TrenchCats.Combat.csproj" />
       <ProjectReference Include="..\TrenchCats.Functional\TrenchCats.Functional.csproj" />
       <ProjectReference Include="..\TrenchCats.Grid\TrenchCats.Grid.csproj" />
-      <ProjectReference Include="..\TrenchCats.Interactions\TrenchCats.Interactions.csproj" />
-      <ProjectReference Include="..\TrenchCats.Status\TrenchCats.Status.csproj" />
     </ItemGroup>
 
 </Project>
