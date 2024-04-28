@@ -1,4 +1,4 @@
-namespace Sakura.Grid;
+namespace TrenchCats.Grid;
 
 public class GridSystem<TGridObject>
 {

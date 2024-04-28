@@ -1,4 +1,4 @@
-﻿namespace Sakura.Grid;
+﻿namespace TrenchCats.Grid;
 
 public readonly struct GridPosition(int x, int z) : IEquatable<GridPosition>
 {

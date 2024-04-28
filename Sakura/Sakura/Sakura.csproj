@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TrenchCats.Combat\TrenchCats.Combat.csproj" />
+      <ProjectReference Include="..\TrenchCats.Grid\TrenchCats.Grid.csproj" />
       <ProjectReference Include="..\TrenchCats.Interactions\TrenchCats.Interactions.csproj" />
       <ProjectReference Include="..\TrenchCats.Status\TrenchCats.Status.csproj" />
     </ItemGroup>

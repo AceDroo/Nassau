@@ -1,3 +1,5 @@
+using TrenchCats.Grid;
+
 namespace Sakura.Grid;
 
 public interface IGridVisual
