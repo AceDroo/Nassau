@@ -1,5 +1,6 @@
 using FluentAssertions;
 using Sakura.Items;
+using TrenchCats.Items;
 
 namespace Sakura.Tests.Items;
 

@@ -1,4 +1,4 @@
-namespace Sakura.Items;
+namespace TrenchCats.Items;
 
 public interface IInventory
 {

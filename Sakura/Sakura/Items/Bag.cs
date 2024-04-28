@@ -1,3 +1,5 @@
+using TrenchCats.Items;
+
 namespace Sakura.Items;
 
 public class Bag : Item, IInventory
