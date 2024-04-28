@@ -2,6 +2,7 @@ using FluentAssertions;
 using NSubstitute;
 using Sakura.Actions;
 using Sakura.Units;
+using TrenchCats.Random;
 using TrenchCats.Status;
 
 namespace Sakura.Tests.Actions;

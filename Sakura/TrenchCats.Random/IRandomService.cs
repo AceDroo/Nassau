@@ -1,4 +1,4 @@
-namespace Sakura;
+namespace TrenchCats.Random;
 
 public interface IRandomService
 {

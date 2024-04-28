@@ -1,4 +1,5 @@
 using TrenchCats.Combat;
+using TrenchCats.Random;
 using TrenchCats.Status;
 
 namespace Sakura.Weapons;

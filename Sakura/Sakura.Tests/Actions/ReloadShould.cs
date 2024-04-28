@@ -3,6 +3,7 @@ using NSubstitute;
 using Sakura.Actions;
 using Sakura.Units;
 using Sakura.Weapons;
+using TrenchCats.Random;
 
 namespace Sakura.Tests.Actions;
 

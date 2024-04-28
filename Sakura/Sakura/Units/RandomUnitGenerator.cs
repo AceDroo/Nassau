@@ -1,6 +1,6 @@
-using Sakura.Extensions;
 using Sakura.Races;
 using Sakura.Ranking;
+using TrenchCats.Random;
 using TrenchCats.Status;
 
 namespace Sakura.Units;

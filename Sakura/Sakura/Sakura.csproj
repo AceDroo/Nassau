@@ -12,6 +12,7 @@
       <ProjectReference Include="..\TrenchCats.Grid\TrenchCats.Grid.csproj" />
       <ProjectReference Include="..\TrenchCats.Interactions\TrenchCats.Interactions.csproj" />
       <ProjectReference Include="..\TrenchCats.Items\TrenchCats.Items.csproj" />
+      <ProjectReference Include="..\TrenchCats.Random\TrenchCats.Random.csproj" />
       <ProjectReference Include="..\TrenchCats.Status\TrenchCats.Status.csproj" />
     </ItemGroup>
 
