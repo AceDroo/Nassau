@@ -3,7 +3,7 @@ using Sakura.Ranking;
 using Sakura.Units;
 using TrenchCats.Status;
 
-namespace Sakura.Tests;
+namespace Sakura.Tests.Units;
 
 [TestFixture]
 public class UnitShould

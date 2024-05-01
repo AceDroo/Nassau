@@ -5,7 +5,7 @@ using Sakura.Units;
 using TrenchCats.Core;
 using TrenchCats.Status;
 
-namespace Sakura.Tests;
+namespace Sakura.Tests.Units;
 
 [TestFixture]
 public class RandomUnitGeneratorShould

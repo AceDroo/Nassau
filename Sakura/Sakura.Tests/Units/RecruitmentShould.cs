@@ -3,7 +3,7 @@ using NSubstitute;
 using Sakura.Economy;
 using Sakura.Units;
 
-namespace Sakura.Tests;
+namespace Sakura.Tests.Units;
 
 [TestFixture]
 public class RecruitmentShould
