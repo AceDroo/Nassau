@@ -2,12 +2,7 @@ namespace Sakura.Geoscape;
 
 public class ScheduleManager
 {
-    private Dictionary<DateTime, List<IActivity>> _activities = new();
-    
-    public IEnumerable<IActivity> GetActivities(DateTime dateTime)
-    {
-        return _activities.TryGetValue(dateTime, out var activities) ? activities : [];
-    }
+    private readonly Dictionary<DateTime, DaySchedule> _activities = new();
 
     public void AddActivity(DateTime dateTime, IActivity activity)
     {
@@ -17,7 +12,10 @@ public class ScheduleManager
         }
         else
         {
-            _activities.Add(dateTime, [ activity ]);
+            _activities.Add(dateTime, new DaySchedule(dateTime, [ activity ]));
         }
     }
+
+    public IEnumerable<IActivity> GetActivities(DateTime dateTime) => 
+        _activities.TryGetValue(dateTime, out var schedule) ? schedule.Activities : [];
 }
