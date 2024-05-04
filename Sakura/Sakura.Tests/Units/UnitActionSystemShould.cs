@@ -6,8 +6,48 @@ using Sakura.Units;
 namespace Sakura.Tests.Units;
 
 [TestFixture]
-public class UnitActionSystemTests
+public class UnitActionSystemShould
 {
+    [Test]
+    public void Do_Nothing_When_SelectPreviousUnit_And_Not_Player_Turn()
+    {
+        var unit1 = Substitute.For<IUnit>();
+        var unit2 = Substitute.For<IUnit>();
+        
+        var turnSystem = new TurnSystem();
+
+        var unitManager = new UnitManager();
+        unitManager.AddFriendlyUnit(unit1);
+        unitManager.AddFriendlyUnit(unit2);
+        var manager = new UnitActionSystem(unitManager, turnSystem);
+
+        turnSystem.SetCurrenTurn(Turn.Enemy);
+
+        manager.SelectPreviousUnit();
+
+        manager.SelectedUnit.Should().Be(unit1);
+    }
+
+    [Test]
+    public void Do_Nothing_When_SelectNextUnit_And_Not_Player_Turn()
+    {
+        var unit1 = Substitute.For<IUnit>();
+        var unit2 = Substitute.For<IUnit>();
+        
+        var turnSystem = new TurnSystem();
+
+        var unitManager = new UnitManager();
+        unitManager.AddFriendlyUnit(unit1);
+        unitManager.AddFriendlyUnit(unit2);
+        var manager = new UnitActionSystem(unitManager, turnSystem);
+
+        turnSystem.SetCurrenTurn(Turn.Enemy);
+
+        manager.SelectNextUnit();
+
+        manager.SelectedUnit.Should().Be(unit1);
+    }
+
     [Test]
     public void SelectPreviousUnit_WhenPlayerTurn_ShouldSelectPreviousUnit()
     {
@@ -21,10 +61,15 @@ public class UnitActionSystemTests
 
         var turnSystem = new TurnSystem();
         var unitActionSystem = new UnitActionSystem(manager, turnSystem);
+        var monitor = unitActionSystem.Monitor();
 
         unitActionSystem.SelectPreviousUnit();
 
         unitActionSystem.SelectedUnit.Should().Be(expectedUnit);
+        monitor
+            .Should().Raise(nameof(unitActionSystem.UnitSelected))
+            .WithSender(unitActionSystem)
+            .WithArgs<UnitSelectedArgs>(args => args.Unit == expectedUnit);
     }
 
     [Test]
@@ -41,9 +86,15 @@ public class UnitActionSystemTests
         var turnSystem = new TurnSystem();
         var unitActionSystem = new UnitActionSystem(manager, turnSystem);
 
+        var monitor = unitActionSystem.Monitor();
+        
         unitActionSystem.SelectNextUnit();
 
         unitActionSystem.SelectedUnit.Should().Be(expectedUnit);
+        monitor
+            .Should().Raise(nameof(unitActionSystem.UnitSelected))
+            .WithSender(unitActionSystem)
+            .WithArgs<UnitSelectedArgs>(args => args.Unit == expectedUnit);
     }
 
     [Test]
