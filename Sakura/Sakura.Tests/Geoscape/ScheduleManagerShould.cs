@@ -22,7 +22,7 @@ public class ScheduleManagerShould
         var manager = new ScheduleManager();
 
         var dateTime = new DateTime(2024, 1, 1);
-        var activity = Substitute.For<IActivity>();
+        var activity = Substitute.For<IScheduleActivity>();
         manager.AddActivity(dateTime, activity);
 
         manager.GetActivities(dateTime).Should().Contain(activity);
@@ -34,9 +34,9 @@ public class ScheduleManagerShould
         var manager = new ScheduleManager();
 
         var dateTime = new DateTime(2024, 3, 9);
-        var activity1 = Substitute.For<IActivity>();
-        var activity2 = Substitute.For<IActivity>();
-        var activity3 = Substitute.For<IActivity>();
+        var activity1 = Substitute.For<IScheduleActivity>();
+        var activity2 = Substitute.For<IScheduleActivity>();
+        var activity3 = Substitute.For<IScheduleActivity>();
 
         manager.AddActivity(dateTime, activity1);
         manager.AddActivity(dateTime, activity2);
@@ -51,13 +51,13 @@ public class ScheduleManagerShould
         var manager = new ScheduleManager();
 
         var dateTime1 = new DateTime(2024, 3, 9);
-        var activity1 = Substitute.For<IActivity>();
-        var activity2 = Substitute.For<IActivity>();
-        var activity3 = Substitute.For<IActivity>();
+        var activity1 = Substitute.For<IScheduleActivity>();
+        var activity2 = Substitute.For<IScheduleActivity>();
+        var activity3 = Substitute.For<IScheduleActivity>();
 
         var dateTime2 = new DateTime(2024, 1, 3);
-        var activity4 = Substitute.For<IActivity>();
-        var activity5 = Substitute.For<IActivity>();
+        var activity4 = Substitute.For<IScheduleActivity>();
+        var activity5 = Substitute.For<IScheduleActivity>();
 
         manager.AddActivity(dateTime1, activity1);
         manager.AddActivity(dateTime1, activity2);

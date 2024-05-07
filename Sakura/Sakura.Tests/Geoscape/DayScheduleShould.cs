@@ -21,7 +21,7 @@ public class DayScheduleShould
     {
         var schedule = new DaySchedule(new DateTime(2024, 1, 1), []);
 
-        var activity = Substitute.For<IActivity>();
+        var activity = Substitute.For<IScheduleActivity>();
         schedule.Add(activity);
 
         schedule.Activities.Should().Contain(activity);

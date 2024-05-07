@@ -1,13 +1,13 @@
 namespace Sakura.Geoscape;
 
-public class DaySchedule(DateTime dateTime, List<IActivity> activities)
+public class DaySchedule(DateTime dateTime, List<IScheduleActivity> activities)
 {
     private readonly DateTime _dateTime = dateTime;
 
-    public void Add(IActivity activity)
+    public void Add(IScheduleActivity scheduleActivity)
     {
-        activities.Add(activity);
+        activities.Add(scheduleActivity);
     }
 
-    public IEnumerable<IActivity> Activities => activities;
+    public IEnumerable<IScheduleActivity> Activities => activities;
 }
