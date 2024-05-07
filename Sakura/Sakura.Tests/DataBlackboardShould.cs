@@ -1,4 +1,5 @@
 using FluentAssertions;
+using TrenchCats.Core;
 
 namespace Sakura.Tests;
 

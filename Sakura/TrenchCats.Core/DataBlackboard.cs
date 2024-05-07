@@ -1,4 +1,4 @@
-namespace Sakura;
+namespace TrenchCats.Core;
 
 public class DataBlackboard
 {
