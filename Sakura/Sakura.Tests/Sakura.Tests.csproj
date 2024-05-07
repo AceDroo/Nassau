@@ -30,6 +30,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Sakura\Sakura.csproj" />
+      <ProjectReference Include="..\TrenchCats.BTree\TrenchCats.BTree.csproj" />
       <ProjectReference Include="..\TrenchCats.Events\TrenchCats.Events.csproj" />
       <ProjectReference Include="..\TrenchCats.Pathfinding\TrenchCats.Pathfinding.csproj" />
     </ItemGroup>
