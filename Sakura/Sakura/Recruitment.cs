@@ -14,9 +14,9 @@ public class Recruitment
         _budget = budget;
     }
 
-    public Result<IUnit, string> TryRecruitUnit(IUnit unit)
+    public Result<IUnit, string> TryRecruitUnit(Option<IUnit> unit)
     {
-        if (unit == null)
+        if (!unit.IsPresent())
         {
             return Result<IUnit, string>.Err("No unit selected");
         }
@@ -27,6 +27,6 @@ public class Recruitment
         }
 
         _budget.Take(UnitRecruitmentCost);
-        return Result<IUnit, string>.Ok(unit);
+        return Result<IUnit, string>.Ok(unit.Get());
     }
 }

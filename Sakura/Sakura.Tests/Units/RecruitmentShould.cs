@@ -2,6 +2,7 @@ using FluentAssertions;
 using NSubstitute;
 using Sakura.Economy;
 using Sakura.Units;
+using TrenchCats.Functional;
 
 namespace Sakura.Tests.Units;
 
@@ -13,7 +14,7 @@ public class RecruitmentShould
     {
         var recruitment = new Recruitment(new Budget(100));
 
-        var result = recruitment.TryRecruitUnit(null);
+        var result = recruitment.TryRecruitUnit(Option<IUnit>.None());
 
         result.IsError.Should().BeTrue();
         result.Error.Should().Be("No unit selected");
@@ -25,7 +26,7 @@ public class RecruitmentShould
         var recruitment = new Recruitment(new Budget(99));
 
         var unit = Substitute.For<IUnit>();
-        var result = recruitment.TryRecruitUnit(unit);
+        var result = recruitment.TryRecruitUnit(Option<IUnit>.Some(unit));
 
         result.IsError.Should().BeTrue();
         result.Error.Should().Be("Not enough funds to recruit");
@@ -37,7 +38,7 @@ public class RecruitmentShould
         var recruitment = new Recruitment(new Budget(100));
 
         var unit = Substitute.For<IUnit>();
-        var result = recruitment.TryRecruitUnit(unit);
+        var result = recruitment.TryRecruitUnit(Option<IUnit>.Some(unit));
 
         result.IsError.Should().BeFalse();
         result.Success.Should().Be(unit); 
@@ -50,7 +51,7 @@ public class RecruitmentShould
         var recruitment = new Recruitment(budget);
 
         var unit = Substitute.For<IUnit>();
-        recruitment.TryRecruitUnit(unit);
+        recruitment.TryRecruitUnit(Option<IUnit>.Some(unit));
 
         budget.Balance.Should().Be(0);
     }
